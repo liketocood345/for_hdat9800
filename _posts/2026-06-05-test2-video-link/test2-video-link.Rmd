@@ -15,13 +15,14 @@ knitr::opts_chunk$set(echo = FALSE)
 ## test_video_link
 
 This post embeds a Bilibili video as an external link test (`test_video_link`).
+All multimedia uses the site default **media-container** wrappers (large / medium / small).
 
 Source: [EasyVtuberStudio on Bilibili](https://www.bilibili.com/video/BV19W7C64EcK/)
 
-### Large embed (960px)
+### Large container (960px)
 
 ```{=html}
-<div class="video-embed video-embed--large">
+<div class="media-container media-container--large">
   <iframe
     src="https://player.bilibili.com/player.html?bvid=BV19W7C64EcK&autoplay=0&danmaku=0&as_wide=1&high_quality=1"
     scrolling="no"
@@ -32,34 +33,34 @@ Source: [EasyVtuberStudio on Bilibili](https://www.bilibili.com/video/BV19W7C64E
 </div>
 ```
 
-### Medium embed A (640px)
+### Medium container (640px)
 
 Standard player controls: play / pause, progress bar, and volume. Autoplay off.
 
 ```{=html}
-<div class="video-embed video-embed--medium">
+<div class="media-container media-container--medium">
   <iframe
     src="https://player.bilibili.com/player.html?bvid=BV19W7C64EcK&autoplay=0&danmaku=0&as_wide=1&high_quality=1"
     scrolling="no"
     frameborder="0"
     allowfullscreen="true"
-    title="EasyVtuberStudio Bilibili video (medium A)"
+    title="EasyVtuberStudio Bilibili video (medium)"
   ></iframe>
 </div>
 ```
 
-### Medium embed B (640px)
+### Small container (400px)
 
-Second medium embed with the same controls and autoplay off.
+Compact embed with the same controls and autoplay off.
 
 ```{=html}
-<div class="video-embed video-embed--medium">
+<div class="media-container media-container--small">
   <iframe
     src="https://player.bilibili.com/player.html?bvid=BV19W7C64EcK&autoplay=0&danmaku=0&as_wide=1&high_quality=1"
     scrolling="no"
     frameborder="0"
     allowfullscreen="true"
-    title="EasyVtuberStudio Bilibili video (medium B)"
+    title="EasyVtuberStudio Bilibili video (small)"
   ></iframe>
 </div>
 ```

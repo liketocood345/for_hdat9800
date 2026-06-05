@@ -1,0 +1,51 @@
+---
+# Copy blocks from this file into post .Rmd bodies.
+# Rule: place ALL multimedia inside a .media-container wrapper (large / medium / small).
+# Snippets file — not rendered as a post.
+---
+
+## Large container (960px) — Bilibili
+
+```{=html}
+<div class="media-container media-container--large">
+  <iframe
+    src="https://player.bilibili.com/player.html?bvid=BV_ID&autoplay=0&danmaku=0&as_wide=1&high_quality=1"
+    scrolling="no"
+    frameborder="0"
+    allowfullscreen="true"
+    title="Video title"
+  ></iframe>
+</div>
+```
+
+## Medium container (640px) — YouTube
+
+```{=html}
+<div class="media-container media-container--medium">
+  <iframe
+    src="https://www.youtube.com/embed/VIDEO_ID?autoplay=0"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen="true"
+    title="Video title"
+  ></iframe>
+</div>
+```
+
+## Small container (400px) — image
+
+```{=html}
+<div class="media-container media-container--small">
+  <img src="figure.png" alt="Short description" />
+</div>
+```
+
+## Small container (400px) — local HTML5 video
+
+```{=html}
+<div class="media-container media-container--small">
+  <video controls preload="metadata" title="Clip title">
+    <source src="clip.mp4" type="video/mp4" />
+  </video>
+</div>
+```

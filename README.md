@@ -54,6 +54,18 @@ for_hdat9800/
 - **GitHub Pages 设置**：`main` 分支，`/docs` 文件夹
 - **认证**：HTTPS + PAT（课程推荐）；不使用 Cursor 签名提交
 
+### 多媒体容器（默认格式）
+
+所有访客可见的多媒体（Bilibili / YouTube iframe、`<video>`、配图、音频）**必须**放在三类容器内，禁止正文裸放：
+
+| 类名 | 最大宽度 | 典型用途 |
+|------|----------|----------|
+| `media-container media-container--large` | 960px | 主视频、大图 |
+| `media-container media-container--medium` | 640px | 正文内嵌视频 |
+| `media-container media-container--small` | 400px | 缩略剪辑、小图 |
+
+可复制 `_templates/media-container-snippets.Rmd` 中的 `{=html}` 片段。样式在 `theme.css`；裸 `iframe` / `video` 会显示虚线边框提示。
+
 ### 媒体与 Git LFS（默认不用）
 
 本机可安装 **Git LFS**；本仓库**默认不走 LFS**（GitHub 免费 LFS 约 1 GB，不适合当默认视频仓库）。
@@ -129,6 +141,13 @@ for_hdat9800/
 - 将截图保存为 `_posts/2026-06-05-test/title-badge.png`
 - 首页列表：在「测试」标题末尾追加徽章图
 - 博文页：在 `d-title` 标题末尾追加同一徽章图
+
+### 2026-06-05 — 多媒体容器大中小（默认格式）
+
+- `theme.css` 新增 `.media-container--large|medium|small`（960 / 640 / 400px）
+- 多媒体仅允许放在容器内；裸 iframe/video 虚线提示
+- 片段模板：`_templates/media-container-snippets.Rmd`；规则：`.cursor/rules/media-container-format.mdc`
+- 「测试2视频外链」示范三种尺寸各一
 
 ### 2026-06-05 — 博文「测试2视频外链」
 

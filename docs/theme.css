@@ -389,23 +389,52 @@ d-title h1 {
   margin-top: 0.5rem;
 }
 
-/* Bilibili iframe embeds */
+/* Media containers — all multimedia (video / iframe / image / audio) goes inside */
+.media-container,
 .video-embed {
   margin: 1.25rem auto;
+  box-sizing: border-box;
 }
 
-.video-embed iframe {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  border-radius: 8px;
-}
-
+.media-container--large,
 .video-embed--large {
   max-width: 960px;
 }
 
+.media-container--medium,
 .video-embed--medium {
   max-width: 640px;
+}
+
+.media-container--small,
+.video-embed--small {
+  max-width: 400px;
+}
+
+.media-container :is(iframe, video, img, audio),
+.video-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+}
+
+.media-container :is(iframe, video),
+.video-embed iframe {
+  aspect-ratio: 16 / 9;
+}
+
+.media-container img {
+  height: auto;
+}
+
+/* Guardrail: bare multimedia outside a container shows a dashed outline */
+.d-article :is(iframe, video, audio) {
+  outline: 2px dashed var(--cv-navy-mid);
+  outline-offset: 3px;
+}
+
+.media-container :is(iframe, video, audio),
+.video-embed iframe {
+  outline: none;
 }
