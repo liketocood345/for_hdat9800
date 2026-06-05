@@ -1,7 +1,7 @@
 ---
-title: "总览"
+title: "Overview"
 description: |
-  全部博客文章，按发布时间排列。
+  All blog posts, sorted by publication date (newest first).
 site: distill::distill_website
 listing: posts
 ---
@@ -13,4 +13,4 @@ listing: posts
   <div class="cv-geo-accent cv-geo-accent--rect"></div>
 </div>
 
-所有博客文章如下，最新发布排在最前。
+All blog posts are listed below, with the most recent at the top.

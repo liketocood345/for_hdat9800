@@ -2,19 +2,19 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "关于我",
-      "description": "GitHub 账号信息；暂不公布更多个人资料。",
+      "title": "About Me",
+      "description": "GitHub profile; additional personal details are not published at this time.",
       "author": [],
-      "contents": "\r\n\r\n\r\n\r\n\r\nliketocood345\r\n\r\n\r\n由于账号内有其他公共项目，暂时不公布个人信息。\r\n\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2026-06-05T17:10:54+10:00"
+      "contents": "\r\n\r\n\r\n\r\n\r\nliketocood345\r\n\r\n\r\nDue to other public projects on this account, personal information is not published at this time.\r\n\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2026-06-05T17:17:13+10:00"
     },
     {
       "path": "index.html",
-      "title": "总览",
-      "description": "全部博客文章，按发布时间排列。\n",
+      "title": "Overview",
+      "description": "All blog posts, sorted by publication date (newest first).\n",
       "author": [],
-      "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n所有博客文章如下，最新发布排在最前。\r\n\r\n\r\n\r\n",
-      "last_modified": "2026-06-05T17:10:55+10:00"
+      "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nAll blog posts are listed below, with the most recent at the top.\r\n\r\n\r\n\r\n",
+      "last_modified": "2026-06-05T17:17:14+10:00"
     }
   ],
   "collections": ["posts/posts.json"]
