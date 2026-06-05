@@ -6,18 +6,66 @@ site: distill::distill_website
 listing: posts
 ---
 
-<div class="cv-home-deco" aria-hidden="true">
-  <div class="cv-geo-sidebar"></div>
-  <div class="cv-geo-accent cv-geo-accent--circle"></div>
-  <div class="cv-geo-accent cv-geo-accent--bar"></div>
-  <div class="cv-geo-accent cv-geo-accent--rect"></div>
-</div>
+```{=html}
+<header class="overview-topbar" role="banner" aria-label="Site header">
+  <div class="overview-topbar__sidebar">
+    <a href="index.html" class="overview-topbar__title">HDAT9800 Blog</a>
+  </div>
+  <div class="overview-topbar__bar" aria-hidden="true"></div>
+  <div class="overview-topbar__search">
+    <button type="button" class="overview-search-toggle" aria-label="Open search" aria-expanded="false" aria-controls="overview-search-panel">
+      <svg class="overview-search-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"></circle>
+        <line x1="15.5" y1="15.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+      </svg>
+    </button>
+    <div id="overview-search-panel" class="overview-search-panel"></div>
+  </div>
+  <a href="about.html" class="overview-topbar__about">About Me</a>
+</header>
+```
 
 All blog posts are listed below, with the most recent at the top.
 
 ```{=html}
 <script>
 (function () {
+  if (!document.body.classList.contains("layout-listing")) return;
+
+  function setupOverviewTopbar() {
+    var topbar = document.querySelector(".overview-topbar");
+    if (topbar && topbar.parentElement && topbar.parentElement !== document.body) {
+      document.body.insertBefore(topbar, document.body.firstChild);
+    }
+
+    var searchEl = document.getElementById("distill-search");
+    var panel = document.getElementById("overview-search-panel");
+    var toggle = document.querySelector(".overview-search-toggle");
+    if (searchEl && panel && !panel.contains(searchEl)) {
+      searchEl.classList.remove("hidden");
+      searchEl.classList.add("overview-search-input");
+      searchEl.setAttribute("placeholder", "Search...");
+      panel.appendChild(searchEl);
+    }
+
+    if (toggle && panel && !toggle.dataset.bound) {
+      toggle.dataset.bound = "1";
+      toggle.addEventListener("click", function () {
+        var open = panel.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", open ? "Close search" : "Open search");
+        if (open && searchEl) searchEl.focus();
+      });
+      document.addEventListener("click", function (ev) {
+        if (!panel.classList.contains("is-open")) return;
+        if (ev.target.closest(".overview-topbar__search")) return;
+        panel.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open search");
+      });
+    }
+  }
+
   function injectListingBadge() {
     var card = document.querySelector('a.post-preview[href*="2026-06-05-test"]');
     if (!card || card.querySelector(".post-card-badge-slot")) return;
@@ -30,11 +78,21 @@ All blog posts are listed below, with the most recent at the top.
     slot.appendChild(img);
     card.appendChild(slot);
   }
+
   function schedule() {
+    setupOverviewTopbar();
     injectListingBadge();
-    setTimeout(injectListingBadge, 100);
-    setTimeout(injectListingBadge, 500);
+    setTimeout(function () {
+      setupOverviewTopbar();
+      injectListingBadge();
+    }, 100);
+    setTimeout(function () {
+      setupOverviewTopbar();
+      injectListingBadge();
+    }, 500);
   }
+
+  setupOverviewTopbar();
   document.addEventListener("DOMContentLoaded", schedule);
   window.addEventListener("WebComponentsReady", schedule);
   window.addEventListener("load", schedule);

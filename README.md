@@ -117,6 +117,12 @@ for_hdat9800/
 - 首页列表：在「测试」标题末尾追加徽章图
 - 博文页：在 `d-title` 标题末尾追加同一徽章图
 
+### 2026-06-05 — Overview 自定义顶栏（仅首页）
+
+- 几何装饰放大为 `overview-topbar`，取代 Overview 页默认 Distill 顶栏
+- 左侧保留 **HDAT9800 Blog**；圆内放大镜 + 可展开搜索；右侧方框内 **About Me**
+- 去掉 Overview 页重复的 Overview 导航项；博文详情页仍用默认顶栏
+
 ### 2026-06-05 — 修复 About 页与首页徽章显示
 
 - About 页改用 `{=html}` 块，避免 Pandoc 破坏头像布局；恢复中文隐私说明
