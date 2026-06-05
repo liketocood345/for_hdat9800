@@ -91,27 +91,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>HDAT9800 Blog: About Me</title>
 
-  <meta property="description" itemprop="description" content="GitHub profile; additional personal details are not published at this time."/>
+  <meta property="description" itemprop="description" content=""/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="HDAT9800 Blog: About Me"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="GitHub profile; additional personal details are not published at this time."/>
+  <meta property="og:description" content=""/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="HDAT9800 Blog"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="HDAT9800 Blog: About Me"/>
-  <meta property="twitter:description" content="GitHub profile; additional personal details are not published at this time."/>
+  <meta property="twitter:description" content=""/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["About Me"]},{"type":"character","attributes":{},"value":["GitHub profile; additional personal details are not published at this time."]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["About Me"]},{"type":"character","attributes":{},"value":[""]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2285,22 +2285,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     border-top: 1px solid rgba(51, 78, 108, 0.25);
   }
 
-  /* Inline badge appended to post titles (listing + article) */
-  .title-badge {
-    display: inline-block;
-    height: 2.4em;
-    width: auto;
-    margin-left: 0.65rem;
-    vertical-align: middle;
-    border-radius: 4px;
-  }
-
-  a.post-preview[href*="2026-06-05-test"] .description h2,
-  .d-title h1.title-with-badge {
+  /* 测试 post title badge on overview listing (CSS survives Distill re-render) */
+  .posts-list a.post-preview[href*="2026-06-05-test"] .description h2 {
     display: inline-flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+
+  .posts-list a.post-preview[href*="2026-06-05-test"] .description h2::after {
+    content: "";
+    display: inline-block;
+    height: 2.4em;
+    width: 9em;
+    background: url("posts/2026-06-05-test/title-badge.png") no-repeat center / contain;
+    margin-left: 0.25rem;
+    vertical-align: middle;
+  }
+
+  /* About Me — hide empty title description block */
+  .about-me-profile {
+    margin-top: 0.5rem;
   }
 
   </style>
@@ -2315,7 +2320,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"About Me","description":"GitHub profile; additional personal details are not published at this time.","authors":[]}
+{"title":"About Me","description":"","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2342,23 +2347,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>GitHub profile; additional personal details are not published at this time.</p></p>
+
 </div>
 
 
 <div class="d-article">
 <div class="about-me-profile">
-<p><a href="https://github.com/liketocood345" class="about-me-avatar-link">
-<img src="https://avatars.githubusercontent.com/u/130688934?v=4"
-       alt="GitHub avatar"
+
+<a href="https://github.com/liketocood345" class="about-me-avatar-link">
+  <img src="https://avatars.githubusercontent.com/u/130688934?v=4"
+       alt="GitHub avatar of liketocood345"
        class="about-me-avatar" />
-</a></p>
+</a>
+
 <p class="about-me-username">
-<a href="https://github.com/liketocood345">liketocood345</a>
+  <a href="https://github.com/liketocood345">liketocood345</a>
 </p>
+
 <p class="about-me-note">
-Due to other public projects on this account, personal information is not published at this time.
+  由于账号内有其他公共项目，暂时不公布个人信息。
 </p>
+
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

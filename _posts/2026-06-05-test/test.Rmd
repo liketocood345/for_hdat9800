@@ -17,17 +17,25 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-<=test_place_holder=>
+```{=html}
+<style>
+d-title h1::after,
+.d-title h1::after {
+  content: "";
+  display: inline-block;
+  height: 2.4em;
+  width: 9em;
+  background: url("title-badge.png") no-repeat center / contain;
+  margin-left: 0.65rem;
+  vertical-align: middle;
+}
+d-title h1,
+.d-title h1 {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+</style>
+```
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var h1 = document.querySelector(".d-title h1");
-  if (!h1 || h1.querySelector(".title-badge")) return;
-  h1.classList.add("title-with-badge");
-  var img = document.createElement("img");
-  img.src = "title-badge.png";
-  img.alt = "";
-  img.className = "title-badge";
-  h1.appendChild(img);
-});
-</script>
+<=test_place_holder=>

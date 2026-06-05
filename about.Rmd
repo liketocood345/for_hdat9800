@@ -1,18 +1,18 @@
 ---
 title: "About Me"
-description: |
-  GitHub profile; additional personal details are not published at this time.
+description: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{=html}
 <div class="about-me-profile">
 
 <a href="https://github.com/liketocood345" class="about-me-avatar-link">
   <img src="https://avatars.githubusercontent.com/u/130688934?v=4"
-       alt="GitHub avatar"
+       alt="GitHub avatar of liketocood345"
        class="about-me-avatar" />
 </a>
 
@@ -21,7 +21,8 @@ knitr::opts_chunk$set(echo = FALSE)
 </p>
 
 <p class="about-me-note">
-  Due to other public projects on this account, personal information is not published at this time.
+  由于账号内有其他公共项目，暂时不公布个人信息。
 </p>
 
 </div>
+```
