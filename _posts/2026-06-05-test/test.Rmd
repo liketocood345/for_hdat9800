@@ -18,3 +18,16 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <=test_place_holder=>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var h1 = document.querySelector(".d-title h1");
+  if (!h1 || h1.querySelector(".title-badge")) return;
+  h1.classList.add("title-with-badge");
+  var img = document.createElement("img");
+  img.src = "title-badge.png";
+  img.alt = "";
+  img.className = "title-badge";
+  h1.appendChild(img);
+});
+</script>

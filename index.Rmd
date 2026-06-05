@@ -14,3 +14,17 @@ listing: posts
 </div>
 
 All blog posts are listed below, with the most recent at the top.
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var link = document.querySelector('a.post-preview[href*="2026-06-05-test"]');
+  if (!link) return;
+  var h2 = link.querySelector(".description h2");
+  if (!h2 || h2.querySelector(".title-badge")) return;
+  var img = document.createElement("img");
+  img.src = "posts/2026-06-05-test/title-badge.png";
+  img.alt = "";
+  img.className = "title-badge";
+  h2.appendChild(img);
+});
+</script>

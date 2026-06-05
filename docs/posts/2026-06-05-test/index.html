@@ -130,7 +130,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["test_files/anchor-4.2.2/anchor.min.js","test_files/bowser-1.9.3/bowser.min.js","test_files/distill-2.2.21/template.v2.js","test_files/header-attrs-2.31/header-attrs.js","test_files/jquery-3.6.0/jquery-3.6.0.js","test_files/jquery-3.6.0/jquery-3.6.0.min.js","test_files/jquery-3.6.0/jquery-3.6.0.min.map","test_files/popper-2.6.0/popper.min.js","test_files/tippy-6.2.7/tippy-bundle.umd.min.js","test_files/tippy-6.2.7/tippy-light-border.css","test_files/tippy-6.2.7/tippy.css","test_files/tippy-6.2.7/tippy.umd.min.js","test_files/webcomponents-2.0.0/webcomponents.js","title-badge.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2304,6 +2304,24 @@ d-title h1 {
   border-top: 1px solid rgba(51, 78, 108, 0.25);
 }
 
+/* Inline badge appended to post titles (listing + article) */
+.title-badge {
+  display: inline-block;
+  height: 2.4em;
+  width: auto;
+  margin-left: 0.65rem;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+
+a.post-preview[href*="2026-06-05-test"] .description h2,
+.d-title h1.title-with-badge {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 </style>
 <!--/radix_placeholder_site_in_header-->
 
@@ -2353,6 +2371,18 @@ d-title h1 {
 
 <div class="d-article">
 <p>&lt;=test_place_holder=&gt;</p>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var h1 = document.querySelector(".d-title h1");
+  if (!h1 || h1.querySelector(".title-badge")) return;
+  h1.classList.add("title-with-badge");
+  var img = document.createElement("img");
+  img.src = "title-badge.png";
+  img.alt = "";
+  img.className = "title-badge";
+  h1.appendChild(img);
+});
+</script>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

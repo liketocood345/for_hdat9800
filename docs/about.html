@@ -2285,6 +2285,24 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     border-top: 1px solid rgba(51, 78, 108, 0.25);
   }
 
+  /* Inline badge appended to post titles (listing + article) */
+  .title-badge {
+    display: inline-block;
+    height: 2.4em;
+    width: auto;
+    margin-left: 0.65rem;
+    vertical-align: middle;
+    border-radius: 4px;
+  }
+
+  a.post-preview[href*="2026-06-05-test"] .description h2,
+  .d-title h1.title-with-badge {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
   </style>
   <!--/radix_placeholder_site_in_header-->
 
