@@ -172,7 +172,7 @@ d-title h1 {
   border-top: 1px solid rgba(51, 78, 108, 0.25);
 }
 
-/* Title row: text left, invisible badge box pinned to far right */
+/* Article page title row */
 .post-title-row {
   display: flex;
   flex-direction: row;
@@ -184,13 +184,12 @@ d-title h1 {
   box-sizing: border-box;
 }
 
-/* Invisible fixed slot — image scales inside via object-fit */
-.title-badge-slot {
+.post-title-row .title-badge-slot {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex: 0 0 auto;
-  width: clamp(5.5rem, 32%, 11rem);
+  width: clamp(5.5rem, 28%, 11rem);
   height: clamp(2rem, 5vw, 3rem);
   margin-left: auto;
   overflow: hidden;
@@ -204,19 +203,33 @@ d-title h1 {
   object-position: center right;
 }
 
-.posts-list a.post-preview[href*="2026-06-05-test"] .description h2 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  flex-wrap: nowrap;
-  gap: 0.75rem;
+/* Overview listing — badge at far right of the colored post-preview card */
+.posts-list a.post-preview[href*="2026-06-05-test"] {
+  position: relative;
 }
 
-.posts-list a.post-preview[href*="2026-06-05-test"] .description h2 .title-badge-slot {
-  width: clamp(5rem, 36%, 10rem);
-  height: clamp(1.85rem, 4.5vw, 2.75rem);
+.posts-list a.post-preview[href*="2026-06-05-test"] > .post-card-badge-slot {
+  position: absolute;
+  top: 50%;
+  right: 1.1rem;
+  transform: translateY(-50%);
+  width: clamp(4.5rem, 22vw, 10rem);
+  height: clamp(2.2rem, 12vw, 4rem);
+  max-height: calc(100% - 1.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.posts-list a.post-preview[href*="2026-06-05-test"] > .post-card-badge-slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center right;
 }
 
 .about-me-profile {

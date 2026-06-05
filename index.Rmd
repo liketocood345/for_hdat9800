@@ -19,16 +19,16 @@ All blog posts are listed below, with the most recent at the top.
 <script>
 (function () {
   function injectListingBadge() {
-    var h2 = document.querySelector('a.post-preview[href*="2026-06-05-test"] .description h2');
-    if (!h2 || h2.querySelector(".title-badge-slot")) return;
+    var card = document.querySelector('a.post-preview[href*="2026-06-05-test"]');
+    if (!card || card.querySelector(".post-card-badge-slot")) return;
     var slot = document.createElement("span");
-    slot.className = "title-badge-slot";
+    slot.className = "post-card-badge-slot";
     slot.setAttribute("aria-hidden", "true");
     var img = document.createElement("img");
     img.src = "posts/2026-06-05-test/title-badge.png";
     img.alt = "";
     slot.appendChild(img);
-    h2.appendChild(slot);
+    card.appendChild(slot);
   }
   function schedule() {
     injectListingBadge();
