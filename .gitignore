@@ -6,3 +6,6 @@
 *.utf8.md
 _posts/*/*.html
 _posts/*/*_files/
+.quarto/
+**/.quarto/
+*_files/

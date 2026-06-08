@@ -1,0 +1,6 @@
+# Shared Quarto options for _posts/**/*.qmd (paths relative to each post folder).
+format:
+  distill::distill_article:
+    css: "../../theme.css"
+    includes:
+      in_header: "../../favicon.html"

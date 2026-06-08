@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 
@@ -2445,6 +2445,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     border-top: 1px solid rgba(51, 78, 108, 0.25);
   }
 
+  /* About page: hide redundant self-link in default Distill nav */
+  body:has(.about-me-profile) .distill-site-nav .nav-right a[href="about.html"] {
+    display: none;
+  }
+
   /* Article page title row */
   .post-title-row {
     display: flex;
@@ -2498,6 +2503,34 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }
 
   .posts-list a.post-preview[href*="2026-06-05-test"] > .post-card-badge-slot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center right;
+  }
+
+  .posts-list a.post-preview[href*="2026-06-08-ggplot-hourglass-four-skill-fusion"] {
+    position: relative;
+  }
+
+  .posts-list a.post-preview[href*="2026-06-08-ggplot-hourglass-four-skill-fusion"] > .post-card-badge-slot {
+    position: absolute;
+    top: 50%;
+    right: 1.1rem;
+    transform: translateY(-50%);
+    width: clamp(4.5rem, 22vw, 10rem);
+    height: clamp(2.2rem, 12vw, 4rem);
+    max-height: calc(100% - 1.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .posts-list a.post-preview[href*="2026-06-08-ggplot-hourglass-four-skill-fusion"] > .post-card-badge-slot img {
     display: block;
     width: 100%;
     height: 100%;
@@ -2740,6 +2773,23 @@ function init_posts_list() {
 <div class="posts-container posts-apply-limit l-page">
 <div class="posts-list">
 <h1 class="posts-list-caption" data-caption="Overview">Overview</h1>
+<a href="posts/2026-06-08-ggplot-hourglass-four-skill-fusion/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<div class="metadata">
+<div class="publishedDate">June 8, 2026</div>
+<div class="dt-authors">
+<div class="dt-author">liketocood345</div>
+</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Fusing Four Plotting Skills into One ggplot Hourglass</h2>
+<div class="dt-tags"></div>
+<p>blog1-One funnel for EDA, manuscript figures, review, and gallery—four repos, one waist record.</p>
+</div>
+</a>
 <a href="posts/2026-06-06-skill-merge-fastest-way-to-learn/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":[]}</script>
 <div class="metadata">
@@ -2754,8 +2804,7 @@ function init_posts_list() {
 <div class="description">
 <h2>Guiding One Skill Merge Is the Fastest Way to Learn</h2>
 <div class="dt-tags"></div>
-<p>One merge is both study and the creation of a reusable AI asset—two birds, one stone.
-On skill files, learning, and why fusion beats hoarding parallel prompts.</p>
+<p>blog0-One merge is both study and the creation of a reusable AI asset—two birds, one stone.</p>
 </div>
 </a>
 <a href="posts/2026-06-05-test/" class="post-preview">
@@ -2779,7 +2828,7 @@ On skill files, learning, and why fusion beats hoarding parallel prompts.</p>
 <script class="post-metadata" type="text/json">{"categories":[]}</script>
 <div class="metadata">
 <div class="publishedDate">June 5, 2026</div>
-<div class="dt-authors"></div>
+
 </div>
 <div class="thumbnail">
 <img/>
@@ -2862,29 +2911,36 @@ On skill files, learning, and why fusion beats hoarding parallel prompts.</p>
     }
   }
 
-  function injectListingBadge() {
-    var card = document.querySelector('a.post-preview[href*="2026-06-05-test"]');
-    if (!card || card.querySelector(".post-card-badge-slot")) return;
-    var slot = document.createElement("span");
-    slot.className = "post-card-badge-slot";
-    slot.setAttribute("aria-hidden", "true");
-    var img = document.createElement("img");
-    img.src = "posts/2026-06-05-test/title-badge.png";
-    img.alt = "";
-    slot.appendChild(img);
-    card.appendChild(slot);
+  var listingBadges = [
+    { match: "2026-06-05-test", img: "posts/2026-06-05-test/title-badge.png" },
+    { match: "2026-06-08-ggplot-hourglass-four-skill-fusion", img: "posts/2026-06-08-ggplot-hourglass-four-skill-fusion/title-badge.png" }
+  ];
+
+  function injectListingBadges() {
+    listingBadges.forEach(function (cfg) {
+      var card = document.querySelector('a.post-preview[href*="' + cfg.match + '"]');
+      if (!card || card.querySelector(".post-card-badge-slot")) return;
+      var slot = document.createElement("span");
+      slot.className = "post-card-badge-slot";
+      slot.setAttribute("aria-hidden", "true");
+      var img = document.createElement("img");
+      img.src = cfg.img;
+      img.alt = "";
+      slot.appendChild(img);
+      card.appendChild(slot);
+    });
   }
 
   function schedule() {
     setupOverviewTopbar();
-    injectListingBadge();
+    injectListingBadges();
     setTimeout(function () {
       setupOverviewTopbar();
-      injectListingBadge();
+      injectListingBadges();
     }, 100);
     setTimeout(function () {
       setupOverviewTopbar();
-      injectListingBadge();
+      injectListingBadges();
     }, 500);
   }
 

@@ -66,29 +66,36 @@ All blog posts are listed below, with the most recent at the top.
     }
   }
 
-  function injectListingBadge() {
-    var card = document.querySelector('a.post-preview[href*="2026-06-05-test"]');
-    if (!card || card.querySelector(".post-card-badge-slot")) return;
-    var slot = document.createElement("span");
-    slot.className = "post-card-badge-slot";
-    slot.setAttribute("aria-hidden", "true");
-    var img = document.createElement("img");
-    img.src = "posts/2026-06-05-test/title-badge.png";
-    img.alt = "";
-    slot.appendChild(img);
-    card.appendChild(slot);
+  var listingBadges = [
+    { match: "2026-06-05-test", img: "posts/2026-06-05-test/title-badge.png" },
+    { match: "2026-06-08-ggplot-hourglass-four-skill-fusion", img: "posts/2026-06-08-ggplot-hourglass-four-skill-fusion/title-badge.png" }
+  ];
+
+  function injectListingBadges() {
+    listingBadges.forEach(function (cfg) {
+      var card = document.querySelector('a.post-preview[href*="' + cfg.match + '"]');
+      if (!card || card.querySelector(".post-card-badge-slot")) return;
+      var slot = document.createElement("span");
+      slot.className = "post-card-badge-slot";
+      slot.setAttribute("aria-hidden", "true");
+      var img = document.createElement("img");
+      img.src = cfg.img;
+      img.alt = "";
+      slot.appendChild(img);
+      card.appendChild(slot);
+    });
   }
 
   function schedule() {
     setupOverviewTopbar();
-    injectListingBadge();
+    injectListingBadges();
     setTimeout(function () {
       setupOverviewTopbar();
-      injectListingBadge();
+      injectListingBadges();
     }, 100);
     setTimeout(function () {
       setupOverviewTopbar();
-      injectListingBadge();
+      injectListingBadges();
     }, 500);
   }
 

@@ -1,8 +1,7 @@
 ---
 title: "Guiding One Skill Merge Is the Fastest Way to Learn"
 description: |
-  One merge is both study and the creation of a reusable AI asset—two birds, one stone.
-  On skill files, learning, and why fusion beats hoarding parallel prompts.
+  blog0-One merge is both study and the creation of a reusable AI asset—two birds, one stone.
 author:
   - name: "liketocood345"
     url: "https://github.com/liketocood345"

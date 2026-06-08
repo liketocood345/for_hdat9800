@@ -1,48 +1,91 @@
-[
-  {
-    "path": "posts/2026-06-06-skill-merge-fastest-way-to-learn/",
-    "title": "Guiding One Skill Merge Is the Fastest Way to Learn",
-    "description": "One merge is both study and the creation of a reusable AI asset—two birds, one stone.\nOn skill files, learning, and why fusion beats hoarding parallel prompts.",
-    "author": [
-      {
-        "name": "liketocood345",
-        "url": "https://github.com/liketocood345"
-      }
-    ],
-    "date": "2026-06-06",
-    "categories": [],
-    "contents": "\r\nOne merge is both study and the creation of a reusable AI asset—two birds, one stone.\r\nWhat a skill file is\r\nA skill file is a document humans can read—and the AI can use. It holds instructions, habits, and context written as prompt material: what to do, what to avoid, when to stop and ask.\r\nIn practice, skills sit in the background until something in your message lines up with what the skill is about—call it keywords, call it intent, the feeling is the same: the right skill slides into the conversation and fills in what you did not repeat this time. That is implicit prompt completion. You are not pasting the same block every turn.\r\nGood skills are edited on purpose or pulled from real work. They are small knowledge assets: not the whole library, but the part you want the agent to remember when the moment matches.\r\nLearning works the same way—in your head\r\nWhen we learn, we:\r\nRead and turn it into our own words.\r\nSpot tensions between sources and keep both sides in view.\r\nAccept ideas we have not lived yet, as long as they make sense—we prove them later.\r\nWire shortcuts in memory: when this cue shows up, take that action. Most of that wiring stays invisible until a test shows the gap.\r\nA skill file is the outward version of that. It is knowledge bundled together, plus which cues should lead to which moves. To grow, you update the bundle and the map—not start from zero every session.\r\nThe fastest path: merge with AI, don’t hoard in parallel\r\nIf that is what skills are, the fastest way to learn a new area is probably not:\r\nhoarding many skills and hoping the agent guesses, or\r\none enormous file that copies everything and rots when sources change.\r\nIt is to sit with AI over skills that already exist and shape one skill of your own: one entry story, clear branches, links back to source material instead of duplicating it.\r\nYou learn while you build. What you build is something you can run again—a reusable AI asset. Study and output in one pass.\r\nSo: how do we actually carry out one skill merge?\r\nThat is not something you solve by typing merge these skills in a terminal. Perhaps the answer only shows up in practice.\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2026-06-06T20:21:45+10:00",
-    "input_file": {}
-  },
-  {
-    "path": "posts/2026-06-05-test/",
-    "title": "测试",
-    "description": "<=test_place_holder=>",
-    "author": [
-      {
-        "name": "<=test_place_holder=>",
-        "url": "https://example.com/<=test_place_holder=>"
-      }
-    ],
-    "date": "2026-06-05",
-    "categories": [],
-    "contents": "\r\n<=test_place_holder=>\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2026-06-05T17:29:04+10:00",
-    "input_file": {}
-  },
-  {
-    "path": "posts/2026-06-05-test2-video-link/",
-    "title": "测试2视频外链",
-    "description": "Bilibili embed test (test_video_link).",
-    "author": [],
-    "date": "2026-06-05",
-    "categories": [],
-    "contents": "\r\ntest_video_link\r\nThis post embeds a Bilibili video as an external link test (test_video_link).\r\nSource: EasyVtuberStudio on Bilibili\r\n\r\n  \r\n  \r\n\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2026-06-05T18:02:35+10:00",
-    "input_file": {}
-  }
+﻿[
+    {
+        "path":  "posts/2026-06-08-ggplot-hourglass-four-skill-fusion/",
+        "title":  "Fusing Four Plotting Skills into One ggplot Hourglass",
+        "description":  "blog1-One funnel for EDA, manuscript figures, review, and gallery—four repos, one waist record.",
+        "author":  [
+                       {
+                           "name":  "liketocood345",
+                           "url":  "https://github.com/liketocood345"
+                       }
+                   ],
+        "date":  "2026-06-08",
+        "categories":  [
+
+                       ],
+        "contents":  "\r\nblog1-One funnel for EDA, manuscript figures, review, and gallery—four repos, one waist record.\r\n\r\n\r\n",
+        "preview":  {
+
+                    },
+        "last_modified":  "2026-06-08T16:22:57+10:00",
+        "input_file":  {
+
+                       }
+    },
+    {
+        "path":  "posts/2026-06-06-skill-merge-fastest-way-to-learn/",
+        "title":  "Guiding One Skill Merge Is the Fastest Way to Learn",
+        "description":  "blog0-One merge is both study and the creation of a reusable AI asset—two birds, one stone.",
+        "author":  [
+                       {
+                           "name":  "liketocood345",
+                           "url":  "https://github.com/liketocood345"
+                       }
+                   ],
+        "date":  "2026-06-06",
+        "categories":  [
+
+                       ],
+        "contents":  "\r\nOne merge is both study and the creation of a reusable AI asset—two birds, one stone.\r\nWhat a skill file is\r\nA skill file is a document humans can read—and the AI can use. It holds instructions, habits, and context written as prompt material: what to do, what to avoid, when to stop and ask.\r\nIn practice, skills sit in the background until something in your message lines up with what the skill is about—call it keywords, call it intent, the feeling is the same: the right skill slides into the conversation and fills in what you did not repeat this time. That is implicit prompt completion. You are not pasting the same block every turn.\r\nGood skills are edited on purpose or pulled from real work. They are small knowledge assets: not the whole library, but the part you want the agent to remember when the moment matches.\r\nLearning works the same way—in your head\r\nWhen we learn, we:\r\nRead and turn it into our own words.\r\nSpot tensions between sources and keep both sides in view.\r\nAccept ideas we have not lived yet, as long as they make sense—we prove them later.\r\nWire shortcuts in memory: when this cue shows up, take that action. Most of that wiring stays invisible until a test shows the gap.\r\nA skill file is the outward version of that. It is knowledge bundled together, plus which cues should lead to which moves. To grow, you update the bundle and the map—not start from zero every session.\r\nThe fastest path: merge with AI, don’t hoard in parallel\r\nIf that is what skills are, the fastest way to learn a new area is probably not:\r\nhoarding many skills and hoping the agent guesses, or\r\none enormous file that copies everything and rots when sources change.\r\nIt is to sit with AI over skills that already exist and shape one skill of your own: one entry story, clear branches, links back to source material instead of duplicating it.\r\nYou learn while you build. What you build is something you can run again—a reusable AI asset. Study and output in one pass.\r\nSo: how do we actually carry out one skill merge?\r\nThat is not something you solve by typing merge these skills in a terminal. Perhaps the answer only shows up in practice.\r\n\r\n\r\n\r\n",
+        "preview":  {
+
+                    },
+        "last_modified":  "2026-06-06T20:27:52+10:00",
+        "input_file":  {
+
+                       }
+    },
+    {
+        "path":  "posts/2026-06-05-test2-video-link/",
+        "title":  "测试2视频外链",
+        "description":  "Bilibili embed test (test_video_link).",
+        "author":  [
+
+                   ],
+        "date":  "2026-06-05",
+        "categories":  [
+
+                       ],
+        "contents":  "\r\ntest_video_link\r\nThis post embeds a Bilibili video as an external link test (test_video_link).\r\nSource: EasyVtuberStudio on Bilibili\r\n\r\n  \r\n  \r\n\r\n\r\n\r\n\r\n",
+        "preview":  {
+
+                    },
+        "last_modified":  "2026-06-05T18:02:35+10:00",
+        "input_file":  {
+
+                       }
+    },
+    {
+        "path":  "posts/2026-06-05-test/",
+        "title":  "测试",
+        "description":  "\u003c=test_place_holder=\u003e",
+        "author":  [
+                       {
+                           "name":  "\u003c=test_place_holder=\u003e",
+                           "url":  "https://example.com/\u003c=test_place_holder=\u003e"
+                       }
+                   ],
+        "date":  "2026-06-05",
+        "categories":  [
+
+                       ],
+        "contents":  "\r\n\u003c=test_place_holder=\u003e\r\n\r\n\r\n\r\n",
+        "preview":  {
+
+                    },
+        "last_modified":  "2026-06-05T17:29:04+10:00",
+        "input_file":  {
+
+                       }
+    }
 ]

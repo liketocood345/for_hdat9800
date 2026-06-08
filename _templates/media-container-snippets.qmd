@@ -1,0 +1,23 @@
+---
+# Copy blocks into post .qmd bodies.
+# Rule: all multimedia inside .media-container--{large|medium|small}
+# Template file — not rendered as a post.
+---
+
+## Large — clickable thumbnail
+
+```{=html}
+<div class="media-container media-container--large">
+  <a href="FULL_PAGE_URL">
+    <img src="assets/thumb.png" alt="Short description"/>
+  </a>
+</div>
+```
+
+## Large — image only
+
+```{=html}
+<div class="media-container media-container--large">
+  <img src="assets/figure.png" alt="Short description"/>
+</div>
+```

@@ -23,6 +23,81 @@ about.html（关于）            →  站点说明
 posts/YYYY-MM-DD-slug/        →  单篇博文
 ```
 
+### 博文格式（默认）
+
+每篇正式博文与本地工作区 `blogN-*` 文件夹对应。
+
+**语言（两阶段）**
+
+| 阶段 | 默认语言 | 规则文件 |
+|------|----------|----------|
+| 发布前（规划、本地源稿、改稿） | **中文为主** | `pre-publish-chinese-default` |
+| 正式发布（`_posts/` → build → push） | **英文**（访客可见） | `english-default-site-content` |
+
+发布前英文仅用于：技术关键词（如 `ggplot2`、`BIND`）、专名（仓库 slug、`blogN-` 前缀）、用户指定段落。上线前再将标题/正文译为英文写入 Rmd，除非用户要求中文发布。
+
+| 字段 | YAML 键 | 规则 |
+|------|---------|------|
+| 标题 | `title` | **发布用**英文；规划阶段可用中文标题 + 「发布译名」列 |
+| 副标题 | `description` | **默认以 `blogN-` 开头**；发布用英文；规划阶段可用中文描述 |
+| 作者 | `author` | `name` + `url`（GitHub） |
+| 日期 | `date` | `YYYY-MM-DD`；文件夹名前缀与之对齐 |
+| 目录 | `_posts/` | `YYYY-MM-DD-slug/slug.qmd`（或 `.Rmd`）；`slug` 小写、连字符 |
+| 草稿 | `draft: true` | QMD 博文未发布前保留；`render-qmd-posts.ps1` 默认跳过 |
+
+**副标题在 Distill 中的位置**
+
+- Overview 列表：标题下方摘要段落
+- 博文页：元数据 / OG / `posts.json` 的 `description`
+- 正文开头可用一行斜体重复副标题核心句（可选，不与 YAML 矛盾即可）
+
+**本地源稿与仓库**
+
+- 工作区：`e:/HDAT9800/blogN-<topic>/` 内用**中文**撰写、迭代（如 `blog0-…`、`blog1-ggplot2/`）
+- 发布：整理/翻译为 `_posts/` 下英文 **`.qmd`**（推荐，blog1 起）或 `.Rmd`，Build 后 `docs/` 随 commit 推送
+
+**其他格式约束**
+
+- 多媒体：见下文「多媒体容器」；禁止正文裸放 `iframe` / `video` / `img`
+- 大视频：外链嵌入；仓库默认不用 Git LFS
+- About 页：导航栏不显示指向自身的 About Me 链接（`theme.css`）
+
+**新建博文 YAML 模板**
+
+**Quarto QMD（推荐 · blog1 起）** — 共享格式见 `_posts/_metadata.yml`（`theme.css`、`favicon.html`）：
+
+```yaml
+---
+title: "Your English Title"
+description: |
+  blog1-Your one-line subtitle here.
+author:
+  - name: "liketocood345"
+    url: "https://github.com/liketocood345"
+date: 2026-06-08
+draft: true   # 本地预览用；发布前删除或改为 false
+---
+```
+
+**R Markdown（blog0 等既有稿）**：
+
+```yaml
+---
+title: "Your English Title"
+description: |
+  blog0-Your one-line subtitle here.
+author:
+  - name: "liketocood345"
+    url: "https://github.com/liketocood345"
+date: 2026-06-06
+output:
+  distill::distill_article:
+    self_contained: false
+---
+```
+
+**QMD 源文件编码**：保存为 **UTF-8（无 BOM）**。若 `quarto render` 报 YAML/`format` 异常，用 PowerShell 重写：`Get-Content file.qmd -Encoding UTF8 | Set-Content -Encoding utf8 file.qmd`。
+
 ### 目录结构
 
 ```text
@@ -185,6 +260,27 @@ for_hdat9800/
 - About 页隐私说明改为英文（与站点默认语言一致）
 - Build 后 Overview 列表置顶显示该文
 
+### 2026-06-06 — 发布前中文默认
+
+- 新规则：`.cursor/rules/pre-publish-chinese-default.mdc`
+- 发布前（规划、本地源稿、改稿）中文为主；英文仅关键词/专名/用户指定
+- 正式发布 push Pages 仍默认英文（`english-default-site-content` 已补充两阶段说明）
+- README「博文格式」增加语言两阶段表
+
+### 2026-06-08 — Quarto QMD 支持 + blog1 草稿
+
+- 安装 **Quarto CLI**（`winget install Posit.Quarto`）
+- 新增 `_posts/_metadata.yml`（QMD 博文共享 `distill::distill_article` + `theme.css`）
+- 新增 `tools/render-qmd-posts.ps1`、`tools/sync-qmd-post-to-docs.ps1`、`tools/build-website.ps1`
+- 新增 `_templates/media-container-snippets.qmd`
+- blog1：`_posts/2026-06-08-ggplot-hourglass-four-skill-fusion/ggplot-hourglass-four-skill-fusion.qmd`，**`draft: true`（暂不发布）**
+
+### 2026-06-06 — 博文格式约定与 blog0 副标题
+
+- README 新增「博文格式（默认）」：`description` 副标题默认以 `blogN-` 开头
+- blog0 副标题更新为 `blog0-One merge is both study and the creation of a reusable AI asset—two birds, one stone.`
+- About 页隐藏导航栏冗余 About Me 自链（`theme.css`）
+
 ### 待办（可选）
 
 - [ ] Build 后脚本自动生成 `llms.txt`、`robots.txt`、`content/index.json`
@@ -195,15 +291,30 @@ for_hdat9800/
 
 ## 本地开发
 
-```r
-setwd("e:/HDAT9800/for_hdat9800")
-rmarkdown::render_site()
+**混合构建**（Rmd 站点页 + QMD 博文）：
+
+```powershell
+cd e:\HDAT9800\for_hdat9800
+.\tools\build-website.ps1
 ```
 
-RStudio：**Build → Build Website**
+或分步：
+
+| 步骤 | 命令 | 说明 |
+|------|------|------|
+| QMD 博文 | `.\tools\render-qmd-posts.ps1` | 默认 **跳过** `draft: true` |
+| 草稿预览 | `.\tools\render-qmd-posts.ps1 -IncludeDrafts` | 含 blog1 |
+| 单篇 | `quarto render _posts/.../slug.qmd` | 需 Quarto 在 PATH |
+| Rmd 全站 | `Rscript -e "rmarkdown::render_site()"` | index / about / 旧 Rmd 博文 |
+
+发布 QMD 博文时：去掉 `draft: true` → `render-qmd-posts.ps1` → `sync-qmd-post-to-docs.ps1 -PostDir _posts/...` → `render_site()` 刷新 listing。
+
+RStudio：**Build → Build Website**（仅 Rmd 路径；QMD 用上方脚本）。
 
 新建博文：
 
 ```r
-distill::create_post("your-slug")
+distill::create_post("your-slug")   # Rmd 传统
 ```
+
+QMD 新建：复制 `_posts/YYYY-MM-DD-slug/` 目录 + `slug.qmd` + 可选 `assets/`。
