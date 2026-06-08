@@ -15,4 +15,10 @@ if (-not (Get-Command Rscript -ErrorAction SilentlyContinue)) {
 Write-Host "[render_site] rmarkdown::render_site()"
 Rscript -e "setwd('.'); rmarkdown::render_site()"
 
+# GitHub Pages: skip Jekyll so static assets (e.g. post SKILL.md) are served.
+$noJekyll = Join-Path "docs" ".nojekyll"
+if (-not (Test-Path $noJekyll)) {
+    New-Item -ItemType File -Path $noJekyll -Force | Out-Null
+}
+
 Write-Host "Build complete."

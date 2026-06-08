@@ -28,9 +28,34 @@ listing: posts
 All blog posts are listed below, with the most recent at the top.
 
 ```{=html}
+<p class="overview-pageviews" aria-label="Homepage visit count">
+  Page visits: <span id="site-pageview-count" aria-live="polite">—</span>
+</p>
+<script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
+```
+
+```{=html}
 <script>
 (function () {
   if (!document.body.classList.contains("layout-listing")) return;
+
+  function recordPageView() {
+    var el = document.getElementById("site-pageview-count");
+    if (!el || el.dataset.recorded === "1") return;
+    if (typeof Counter === "undefined") return;
+    el.dataset.recorded = "1";
+    var counter = new Counter({ workspace: "liketocood345" });
+    counter.up("for-hdat9800-home")
+      .then(function (result) {
+        if (result && typeof result.value === "number") {
+          el.textContent = result.value.toLocaleString("en-US");
+        }
+      })
+      .catch(function () {
+        el.textContent = "—";
+        el.dataset.recorded = "0";
+      });
+  }
 
   function setupOverviewTopbar() {
     var topbar = document.querySelector(".overview-topbar");
@@ -89,17 +114,21 @@ All blog posts are listed below, with the most recent at the top.
   function schedule() {
     setupOverviewTopbar();
     injectListingBadges();
+    recordPageView();
     setTimeout(function () {
       setupOverviewTopbar();
       injectListingBadges();
+      recordPageView();
     }, 100);
     setTimeout(function () {
       setupOverviewTopbar();
       injectListingBadges();
+      recordPageView();
     }, 500);
   }
 
   setupOverviewTopbar();
+  recordPageView();
   document.addEventListener("DOMContentLoaded", schedule);
   window.addEventListener("WebComponentsReady", schedule);
   window.addEventListener("load", schedule);
