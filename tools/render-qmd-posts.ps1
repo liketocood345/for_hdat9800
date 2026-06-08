@@ -1,4 +1,4 @@
-# Render Quarto (.qmd) blog posts under _posts/.
+# Render Quarto (.qmd) blog posts with distill via rmarkdown (not quarto CLI plain HTML).
 # Distill Rmd pages (index.Rmd, about.Rmd) still use rmarkdown::render_site().
 #
 # Usage:
@@ -15,8 +15,8 @@ $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot
 Set-Location $Root
 
-if (-not (Get-Command quarto -ErrorAction SilentlyContinue)) {
-    Write-Error "Quarto CLI not found. Install: winget install Posit.Quarto"
+if (-not (Get-Command Rscript -ErrorAction SilentlyContinue)) {
+    Write-Error "Rscript not on PATH. Add R bin to PATH or run from RStudio."
 }
 
 function Test-DraftPost {
@@ -45,14 +45,19 @@ foreach ($post in $posts) {
         Write-Host "[skip draft] $($post.FullName)"
         continue
     }
-    Write-Host "[render] $($post.FullName)"
+    $rel = $post.FullName
+    if ($rel.StartsWith($Root)) {
+        $rel = $rel.Substring($Root.Length).TrimStart('\', '/')
+    }
+    $rel = $rel -replace '\\', '/'
+    Write-Host "[render distill] $rel"
     $prevEap = $ErrorActionPreference
     $ErrorActionPreference = "Continue"
-    & quarto render $post.FullName 2>&1 | ForEach-Object { "$_" }
+    Rscript -e "setwd('.'); rmarkdown::render('$rel', quiet = FALSE)" 2>&1 | ForEach-Object { "$_" }
     $exit = $LASTEXITCODE
     $ErrorActionPreference = $prevEap
     if ($exit -ne 0) {
-        throw "quarto render failed for $($post.FullName) (exit $exit)"
+        throw "rmarkdown::render failed for $rel (exit $exit)"
     }
 }
 

@@ -302,12 +302,12 @@ cd e:\HDAT9800\for_hdat9800
 
 | 步骤 | 命令 | 说明 |
 |------|------|------|
-| QMD 博文 | `.\tools\render-qmd-posts.ps1` | 默认 **跳过** `draft: true` |
-| 草稿预览 | `.\tools\render-qmd-posts.ps1 -IncludeDrafts` | 含 blog1 |
-| 单篇 | `quarto render _posts/.../slug.qmd` | 需 Quarto 在 PATH |
+| QMD 博文 | `.\tools\render-qmd-posts.ps1` | 经 **rmarkdown + distill** 渲染；默认跳过 `draft: true` |
+| 草稿预览 | `.\tools\render-qmd-posts.ps1 -IncludeDrafts` | 含草稿 |
+| 全站 | `.\tools\build-website.ps1` | `render_site()` 会一并处理带 `output: distill::distill_article` 的 QMD |
 | Rmd 全站 | `Rscript -e "rmarkdown::render_site()"` | index / about / 旧 Rmd 博文 |
 
-发布 QMD 博文时：去掉 `draft: true` → `render-qmd-posts.ps1` → `sync-qmd-post-to-docs.ps1 -PostDir _posts/...` → `render_site()` 刷新 listing。
+发布 QMD 博文时：在 YAML 写 `output: distill::distill_article`（勿用 `quarto render` 裸 HTML）→ 去掉 `draft: true` → `.\tools\build-website.ps1` 或 `render_site()`。
 
 RStudio：**Build → Build Website**（仅 Rmd 路径；QMD 用上方脚本）。
 

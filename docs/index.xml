@@ -7,7 +7,15 @@
     <description>Health data science blog — visualisation, communication, and reproducible analysis.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 06 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Fusing Four Plotting Skills into One ggplot Hourglass</title>
+      <dc:creator>liketocood345</dc:creator>
+      <link>https://liketocood345.github.io/for_hdat9800/posts/2026-06-08-ggplot-hourglass-four-skill-fusion</link>
+      <description>blog1-One funnel for EDA, manuscript figures, review, and gallery—four repos, one waist record.</description>
+      <guid>https://liketocood345.github.io/for_hdat9800/posts/2026-06-08-ggplot-hourglass-four-skill-fusion</guid>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Guiding One Skill Merge Is the Fastest Way to Learn</title>
       <dc:creator>liketocood345</dc:creator>
