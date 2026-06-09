@@ -1,0 +1,56 @@
+# Hourglass waist registry skeleton — copy and rename for new merges
+# Full example: blog1-ggplot2/hourglass-waist-registry.yaml
+
+funnel:
+  id: your-funnel-id
+  depth_heterogeneous: true
+  bind_gate: { phase: T1, layer: Z2, id: BIND-T1-Z2 }  # adjust layer for domain
+
+entries:
+  example_phrase: { mode: explore, priority: default }
+  explicit_override: { mode: explore, chart: some-leaf, priority: P0 }
+
+mutex:
+  - fields: [mode]
+    values: [explore, manuscript]
+    winner: manuscript
+    when_keywords: [manuscript, paper, PDF]
+
+waist_fields:
+  mode: { layer: Z0, required: true, enum: [explore, manuscript, review] }
+  data: { layer: Z1, required_after: T0 }
+  chart: { layer: Z2, required_after: T1_BIND, nullable_until: T1 }
+  delivery: { layer: Z3 }
+  overlay: { type: list, allowed: [] }
+
+gamma:
+  profile-a:
+    allow: [leaf-a, leaf-b]
+    deny: [leaf-bad]
+    default: leaf-a
+
+positive_roots:
+  explore:
+    phases: [T0_profile, T1_bind, T3_render]
+    path_depth: long
+  review:
+    phases: [T4_checklist]
+    path_depth: short
+    skip_bind: true
+
+skills:
+  upstream-primary:
+    role: primary_positive_tree
+    path: path/to/SKILL.md
+    leaves: [leaf-a, leaf-b]
+
+leaves:
+  leaf-a:
+    skill: upstream-primary
+    ref: "SKILL.md § Section Name"
+
+conflict_matrix:
+  explore:
+    some_rule: allow
+  manuscript:
+    some_rule: deny

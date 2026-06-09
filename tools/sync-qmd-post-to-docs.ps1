@@ -44,12 +44,11 @@ if (Test-Path $badgeSrc) {
     Copy-Item $badgeSrc (Join-Path $destDir "title-badge.png") -Force
 }
 
-foreach ($skillDir in @("ggplot-hourglass", "hourglass-skill-merge-skill")) {
-    $skillSrc = Join-Path $PostDir $skillDir
-    if (-not (Test-Path $skillSrc)) { continue }
-    $skillDest = Join-Path $destDir $skillDir
-    New-Item -ItemType Directory -Force -Path $skillDest | Out-Null
-    Copy-Item (Join-Path $skillSrc "*") $skillDest -Recurse -Force
+$takeawaySrc = Join-Path $PostDir "takeaway"
+if (Test-Path $takeawaySrc) {
+    $takeawayDest = Join-Path $destDir "takeaway"
+    New-Item -ItemType Directory -Force -Path $takeawayDest | Out-Null
+    Copy-Item (Join-Path $takeawaySrc "*") $takeawayDest -Recurse -Force
 }
 
 Copy-Item $qmd.FullName (Join-Path $destDir $qmd.Name) -Force
